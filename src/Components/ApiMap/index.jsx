@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPost } from "../../Features/postSlicer";
 import { makeStyles } from "@material-ui/core";
@@ -23,14 +23,18 @@ export default function ApiMap() {
 
   return (
     <div className={classes.mapComponent}>
-      
       {postLoading && "....Loading ..."}
       {postSuccess &&
         post.map((post) => {
           return (
             <div className={classes.card}>
-              <Link to="/:CountryDetails">
-                <img src={post.flag} alt="" className={classes.imag} />
+              <Link to="/Detail">
+                <img
+                  src={post.flag}
+                  alt=""
+                  className={classes.imag}
+                  onClick={() => handleAdd(post)}
+                />
               </Link>
 
               <box className={classes.detail}>

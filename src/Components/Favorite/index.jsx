@@ -35,6 +35,7 @@ const Favorite = () => {
 };
 const useStyles = makeStyles((theme) => ({
   cardContain: {
+    margin: "10px",
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",

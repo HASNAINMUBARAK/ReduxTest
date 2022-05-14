@@ -1,10 +1,11 @@
 import React from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import SearchIcon from "@material-ui/icons/Search";
 import { getPost } from "../../Features/postSlicer";
 import { setInput } from "../../Features/postSlicer";
 import { useDispatch } from "react-redux";
+import Filter from "../Filter";
+
 const SearchForm = ({ handleChange }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const SearchForm = ({ handleChange }) => {
         <input
           onChange={(e) => {
             console.log(e.target.value);
-            if (e.target.value === " ") {
+            if (e.target.value === "") {
               dispatch(getPost());
             } else {
               dispatch(setInput(e.target.value));
@@ -28,9 +29,7 @@ const SearchForm = ({ handleChange }) => {
         />
       </box>
       <box className={classes.btncontainer}>
-        <button className={classes.btn}>
-          Filter By <ExpandMoreIcon />
-        </button>
+        <Filter />
       </box>
     </div>
   );
@@ -41,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     padding: "30px 50px",
     background: "white",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
   },
   input: {
     border: "none",
@@ -55,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     color: "black",
     background: "white",
+    [theme.breakpoints.down("md")]: {
+      paddingTop: "10px",
+    },
   },
 
   btn: {
@@ -67,6 +73,11 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 0px 10px 1px",
     alignItems: "center",
     justifyContent: "center",
+  },
+  btncontainer: {
+    [theme.breakpoints.down("md")]: {
+      paddingTop: "10px",
+    },
   },
 }));
 export default SearchForm;

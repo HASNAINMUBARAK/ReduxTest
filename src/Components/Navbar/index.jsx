@@ -1,23 +1,14 @@
 import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
-// import web from "../../Assets/Images/web.PNG";
-// import SearchIcon from "@material-ui/icons/Search";
-// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-// import HamBurger from '../Hamberger';
-// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import { Badge } from '@material-ui/core';
-// import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import NightsStayIcon from "@material-ui/icons/NightsStay";
 
 const Navbar = () => {
   const classes = useStyles();
-  // const {cartData:{selection}} = useSelector((state)=>state);
-
   return (
     <>
       <Grid container className={classes.container}>
-        <Grid item lg={3} md={3} sm={2} className={classes.grid1}>
+        <Grid item lg={3} md={3} sm={12} className={classes.grid1}>
           <Link to="/" className={classes.logo}>
             Where is the Word?
           </Link>
@@ -26,8 +17,8 @@ const Navbar = () => {
           item
           container
           lg={5}
-          md={5}
-          sm={5}
+          md={4}
+          sm={12}
           className={classes.grid2}
           display="flex"
           justifyContent="space-evenly"
@@ -53,8 +44,8 @@ const Navbar = () => {
           item
           container
           lg={1}
-          md={1}
-          sm={1}
+          md={2}
+          sm={12}
           className={classes.grid3}
           display="flex"
           alignItems="center"
@@ -76,10 +67,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px 0px",
     boxShadow: "0px 1px 12px 3px",
     [theme.breakpoints.down("md")]: {
-      justifyContent: "space-around",
-    },
-    [theme.breakpoints.down("xs")]: {
-      justifyContent: "space-between",
+  
     },
   },
   logo: {
@@ -94,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
   grid2: {
     [theme.breakpoints.down("xs")]: {
-      display: "none",
+       
     },
   },
   dropdown: {

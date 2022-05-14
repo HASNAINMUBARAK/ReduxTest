@@ -8,6 +8,7 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import Country from "../Components/Country";
 import Favorite from "../Components/Favorite";
+import Detail from "../Components/Detail";
 
 const Routers = () => {
   return (
@@ -21,6 +22,7 @@ const Routers = () => {
           <Route path="/Contact" exact element={<Contact />} />
           <Route path="/:CountryDetails" element={<Country />} />
           <Route path="/Favorite" exact element={<Favorite />} />
+          <Route path="/Detail" exact element={<Detail />} />
         </Routes>
         <Footer />
       </Router>
