@@ -7,6 +7,7 @@ import About from "../Pages/About";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import Country from "../Components/Country";
+import Favorite from "../Components/Favorite";
 
 const Routers = () => {
   return (
@@ -19,6 +20,7 @@ const Routers = () => {
           <Route path="/Service" exact element={<Service />} />
           <Route path="/Contact" exact element={<Contact />} />
           <Route path="/:CountryDetails" element={<Country />} />
+          <Route path="/Favorite" exact element={<Favorite />} />
         </Routes>
         <Footer />
       </Router>

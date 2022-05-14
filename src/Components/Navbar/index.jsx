@@ -45,6 +45,9 @@ const Navbar = () => {
           <Link to="/Contact" className={classes.dropdown}>
             Contact Us{" "}
           </Link>
+          <Link to="/Favorite" className={classes.dropdown}>
+            Favorite{" "}
+          </Link>
         </Grid>
         <Grid
           item

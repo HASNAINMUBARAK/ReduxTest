@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     padding: "30px 50px",
-    background: "#303554",
+    background: "white",
   },
   input: {
     border: "none",
@@ -37,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
   Input: {
     width: "250px",
-    border: "1px solid black",
+    height: "40px",
+    boxShadow: "0px 0px 10px 1px",
     borderRadius: "5px",
     display: "flex",
     alignItems: "center",
@@ -46,6 +47,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   btn: {
+    border: "none",
+    borderRadius: "5px",
+    height: "40px",
+    boxShadow: "0px 0px 10px 1px",
     display: "flex",
     alignItems: "center",
   },

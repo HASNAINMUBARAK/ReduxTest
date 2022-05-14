@@ -4,6 +4,7 @@ import { getPost } from "../../Features/postSlicer";
 import { makeStyles } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { Link } from "react-router-dom";
+import { add } from "../../Features/FavSlicer";
 
 export default function ApiMap() {
   const classes = useStyles();
@@ -15,28 +16,13 @@ export default function ApiMap() {
   useEffect(() => {
     dispatch(getPost());
   }, []);
-  // for Like
-  const [num, setnum] = useState(0);
-  const decNum = () => {
-    if (num > 0) {
-      setnum(num - 1);
-    } else {
-      setnum(0);
-    }
-  };
-  const incNum = () => {
-    setnum(num + 1);
+
+  const handleAdd = (product) => {
+    dispatch(add(product));
   };
 
   return (
     <div className={classes.mapComponent}>
-      {/* <button
-                onClick={() => {
-                  dispatch(getPost());
-                }}
-              >
-                get data
-              </button> */}
       {postLoading && "....Loading ..."}
       {postSuccess &&
         post.map((post) => {
@@ -48,23 +34,22 @@ export default function ApiMap() {
 
               <box className={classes.detail}>
                 <box className={classes.name}>
-                  <h3>{post.name}</h3>
+                  <h3 className={classes.head13}>{post.name}</h3>
                   <div className={classes.like}>
-                    <input
-                      className={classes.count}
-                      id="out"
-                      type="text"
-                      value={num}
-                    ></input>
-                    <button className={classes.likebtn} onClick={incNum}>
+                    <button
+                      className={classes.likebtn}
+                      onClick={() => handleAdd(post)}
+                    >
                       <FavoriteIcon style={{ color: "red" }} />
                     </button>
                   </div>
                 </box>
                 <box className={classes.des}>
-                  <h5>Population: {post.population}</h5>
-                  <h5>Region: {post.region}</h5>
-                  <h5>Capital: {post.capital}</h5>
+                  <h5 className={classes.head5}>
+                    Population: {post.population}
+                  </h5>
+                  <h5 className={classes.head5}>Region: {post.region}</h5>
+                  <h5 className={classes.head5}>Capital: {post.capital}</h5>
                 </box>
               </box>
             </div>
@@ -82,9 +67,10 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     margin: 20,
+    borderColor: "black",
+    boxShadow: "0px 0px 15px 2px",
     background: "#063875",
     borderRadius: "5px",
-    color: "white",
   },
   name: {
     display: "flex",
@@ -118,5 +104,13 @@ const useStyles = makeStyles((theme) => ({
   likebtn: {
     background: "#063875",
     border: "none",
+  },
+  head13: {
+    color: "white",
+  },
+  head5: {
+    color: "white",
+    padding: 0,
+    margin: 5,
   },
 }));

@@ -1,11 +1,10 @@
-import React from "react";
+// import React from "react";
 
-const Country = () => {
-  return (
-    <div>
-      <h1>i m country</h1>
-    </div>
-  );
-};
+// const Country = () => {
+// //   const param = useParams();
 
-export default Country;
+// //   console.log(param);
+// //   return <>selected country: {param.countryName}</>;
+// };
+
+// export default Country;
