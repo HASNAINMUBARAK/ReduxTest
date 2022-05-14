@@ -16,7 +16,17 @@ const initialState = {
 const post = createSlice({
   name: "post",
   initialState,
-
+  reducers: {
+    setInput: (state, action) => {
+      if (action.payload != null) {
+        state.post = state.post.filter((item) => {
+          if (item.name[0] === action.payload[0]) {
+            return item;
+          }
+        });
+      }
+    },
+  },
   extraReducers: {
     [getPost.pending]: (state) => {
       state.postLoading = true;
@@ -36,5 +46,5 @@ const post = createSlice({
     },
   },
 });
-
+export const { setInput } = post.actions;
 export default post.reducer;

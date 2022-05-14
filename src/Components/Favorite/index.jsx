@@ -21,7 +21,7 @@ const Favorite = () => {
               <h5>{product.name}</h5>
 
               <button
-                onClick={() => handleRemove(product.id)}
+                onClick={() => handleRemove(product.name)}
                 className={classes.remove}
               >
                 Remove

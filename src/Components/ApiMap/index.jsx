@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPost } from "../../Features/postSlicer";
 import { makeStyles } from "@material-ui/core";
@@ -23,6 +23,7 @@ export default function ApiMap() {
 
   return (
     <div className={classes.mapComponent}>
+      
       {postLoading && "....Loading ..."}
       {postSuccess &&
         post.map((post) => {

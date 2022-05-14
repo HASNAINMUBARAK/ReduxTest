@@ -2,17 +2,28 @@ import React from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import SearchIcon from "@material-ui/icons/Search";
-
+import { getPost } from "../../Features/postSlicer";
+import { setInput } from "../../Features/postSlicer";
+import { useDispatch } from "react-redux";
 const SearchForm = ({ handleChange }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   return (
     <div className={classes.searchContain}>
       <box className={classes.Input}>
         <SearchIcon />
         <input
+          onChange={(e) => {
+            console.log(e.target.value);
+            if (e.target.value === " ") {
+              dispatch(getPost());
+            } else {
+              dispatch(setInput(e.target.value));
+            }
+          }}
           className={classes.input}
           type="text"
-          onChange={handleChange}
+          // onChange={handleChange}
           placeholder="Search for a Country"
         />
       </box>
@@ -47,12 +58,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   btn: {
+    display: "flex",
+    width: "120px",
+    textAlign: "center",
     border: "none",
     borderRadius: "5px",
     height: "40px",
     boxShadow: "0px 0px 10px 1px",
-    display: "flex",
     alignItems: "center",
+    justifyContent: "center",
   },
 }));
 export default SearchForm;
